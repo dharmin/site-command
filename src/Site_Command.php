@@ -408,7 +408,14 @@ class Site_Command extends EE_Command {
 	 */
 	private function docker_compose_up() {
 
+		EE::debug( 'Execution Dir: ' . getcwd() );
+		EE::debug( 'Changing Dir to: ' . $this->site_root );
 		$chdir_return_code = chdir( $this->site_root );
+		EE::debug( 'Current Dir: ' . getcwd() );
+		$dir    = '.';
+		$files  = scandir( $dir );
+		EE::debug( 'Files in current dir: ' . print_r( $files1 ) );
+
 		$this->level       = 3;
 		try {
 			if ( $chdir_return_code ) {
